@@ -9,5 +9,15 @@ function followandrew_register_styles()
     wp_enqueue_style('followandrew-fontawesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css", array(), '5.13.0', 'all');
 }
 // 指定 wp 加载脚本时，把我们定义的followandrew_register_styles函数也跟着执行
-add_action('wp_enqueue_scripts', 'followandrew_register_styles')
+add_action('wp_enqueue_scripts', 'followandrew_register_styles');
+
+function followandrew_register_scripts()
+{
+    wp_enqueue_script('followandre_jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), '3.4.1', true);
+    wp_enqueue_script('followandre_popper', "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js", array(), '3.4.1', true);
+    wp_enqueue_script('followandre_boostrap', "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js", array(), '3.4.1', true);
+    wp_enqueue_script('followandre_main', get_template_directory_uri() . "/assets/js/main.js", array(), '1.0', true);
+}
+// 指定 wp 加载脚本时，把我们定义的followandrew_register_scripts函数也跟着执行
+add_action('wp_enqueue_scripts', 'followandrew_register_scripts')
     ?>
