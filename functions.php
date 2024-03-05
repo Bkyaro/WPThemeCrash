@@ -1,4 +1,12 @@
 <?php
+// 添加动态<title>标签
+function followandre_theme_support()
+{
+    add_theme_support('title-tag');
+}
+add_action('after_theme_setup', 'followandre_theme_support');
+
+//动态引入样式
 function followandrew_register_styles()
 {
     // 创建指向style.css中Version的变量
@@ -11,6 +19,7 @@ function followandrew_register_styles()
 // 指定 wp 加载脚本时，把我们定义的followandrew_register_styles函数也跟着执行。 此处对应front-page.php中的 wp_header()
 add_action('wp_enqueue_scripts', 'followandrew_register_styles');
 
+//动态引入脚本
 function followandrew_register_scripts()
 {
     wp_enqueue_script('followandre_jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), '3.4.1', true);
