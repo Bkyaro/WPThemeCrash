@@ -3,6 +3,7 @@
 function followandre_theme_support()
 {
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
 }
 add_action('after_theme_setup', 'followandre_theme_support');
 
@@ -18,6 +19,8 @@ function followandrew_menus()
     register_nav_menu($locations);
 }
 add_action('init', 'followandrew_menus');
+
+
 
 
 //动态引入样式

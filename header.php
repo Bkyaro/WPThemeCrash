@@ -24,7 +24,11 @@
 <body>
     
     <header class="header text-center">	    
-        <a class="site-title pt-lg-4 mb-0" href="index.html">SiteName.dev</a>
+        <a class="site-title pt-lg-4 mb-0" href="index.html">
+            <?php
+            echo get_bloginfo('name')
+                ?>
+        </a>
         
         <nav class="navbar navbar-expand-lg navbar-dark" >
            
@@ -33,7 +37,14 @@
             </button>
 
             <div id="navigation" class="collapse navbar-collapse flex-column" >
-                <img class="mb-3 mx-auto logo" src="images/logo.png" alt="logo" >	
+                <?php
+                if (function_exists('custom_logo')) {
+
+                    $custom_logo_id = get_theme_mod('custom_logo');
+                    $logo = wp_get_attachment_image_src($custom_logo_id);
+                }
+                ?>
+                <img class="mb-3 mx-auto logo" src="<?php echo $logo[0] ?>" alt="logo" >	
                 
                 <?php
                 // 此处循环出来的列表，如果需要添加样式，还需要去 wp 后台，菜单页面，给每个菜单增加
