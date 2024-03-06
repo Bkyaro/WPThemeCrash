@@ -6,6 +6,20 @@ function followandre_theme_support()
 }
 add_action('after_theme_setup', 'followandre_theme_support');
 
+// 动态添加菜单
+function followandrew_menus()
+{
+    // 创建数组
+    $locations = array(
+        'primary' => 'Desktop Primary Left Sidebar',
+        'footer' => 'Footer Menu Items'
+    );
+    // 注册菜单
+    register_nav_menu($locations);
+}
+add_action('init', 'followandrew_menus');
+
+
 //动态引入样式
 function followandrew_register_styles()
 {
